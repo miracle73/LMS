@@ -18,18 +18,21 @@ export default function App() {
   //   { image: "advanced-marketing-program", price: 250, name: 'Neil Patels Advanced Marketing Program (Beginners Class) Month 1', time: "20:0 Hours", tutor: "SAU Marketing Program" }
   // ]
   return (
-    <Stack.Navigator
-      screenOptions={{
-        headerShown: false
-      }}
-    >
-      <NavigationContainer >
+    <NavigationContainer >
 
-        <Navigation />
-        <StatusBar style="light" />
+      {/* // <Stack.Navigator
+      //   screenOptions={{
+      //     headerShown: false
+      //   }}
+      // > */}
 
-      </NavigationContainer >
-    </Stack.Navigator>
+
+      <Navigation />
+      <StatusBar style="light" />
+
+
+      {/* // </Stack.Navigator> */}
+    </NavigationContainer >
   );
 }
 
