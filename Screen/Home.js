@@ -5,13 +5,18 @@ import SecondIcon from 'react-native-vector-icons/Ionicons';
 import ThirdIcon from 'react-native-vector-icons/EvilIcons';
 import FourthIcon from 'react-native-vector-icons/FontAwesome';
 import ImageSlider from '../Components/ImageSlider';
+import landBanker from '../assets/Image/land-banker.jpg'
+import marketingImage from '../assets/Image/advanced-marketing-program.jpg'
+import forex from '../assets/Image/forex.jpg'
+import okunugaImage from '../assets/Image/okunuga.jpg'
+import akintayoImage from '../assets/Image/Stephen-Akintayo.jpg'
 
 
 const Home = () => {
     const slides = [
-        { image: "forex", price: 200, name: 'Forex Trading Master Class', time: "1:30 Hours", tutor: "Okunuga Oluwatobiloba" },
-        { image: "land-banker", price: 50, name: 'How to become a millionaire land banker through Mini Estate', time: "1:30 Hours", tutor: "Dr Stephen Akintayo" },
-        { image: "advanced-marketing-program", price: 250, name: 'Neil Patels Advanced Marketing Program (Beginners Class) Month 1', time: "20:0 Hours", tutor: "SAU Marketing Program" }
+        { image: forex, price: 200, name: 'Forex Trading Master Class', time: "1:30 Hours", tutor: "Okunuga Oluwatobiloba", color: 'white', secondImage: okunugaImage },
+        { image: landBanker, price: 50, name: 'How to become a millionaire land banker through Mini Estate', time: "1:30 Hours", tutor: "Dr Stephen Akintayo", color: 'white', secondImage: akintayoImage },
+        { image: marketingImage, price: 250, name: 'Neil Patels Advanced Marketing Program (Beginners Class) Month 1', time: "20:0 Hours", tutor: "SAU Marketing Program", color: '#6699CC', secondImage: marketingImage }
     ]
     return (
 

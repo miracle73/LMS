@@ -3,19 +3,19 @@ import React, { useState } from 'react'
 import Icon from 'react-native-vector-icons/FontAwesome';
 import SecondIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
+
 const ImageSlider = (props) => {
     const [currentIndex, setCurrentIndex] = useState(0)
-    const [imageSource, setImageSource] = useState(`../assets/Image/forex.jpg`);
+
     // const joy = props.slides[currentIndex].image
     // console.log(props.slides[currentIndex].image)
     // const url = (props.slides[currentIndex].image === "forex") ? `../assets/Image/forex.jpg` : `../assets/Image/land-banker.jpg`;
-    const joy1 = `../assets/Image/land-banker.jpg`
-    const joy2 = imageSource
-    console.log(joy1)
+    // console.log(props.slides[currentIndex])
+
     return (
         <View>
             <View style={styles.container}>
-                <ImageBackground source={require(joy1)}
+                <ImageBackground source={props.slides[currentIndex].image}
                     style={styles.secondContainer}
                     resizeMode="cover">
                     <View style={{
@@ -29,14 +29,14 @@ const ImageSlider = (props) => {
                         justifyContent: 'center'
 
                     }}>
-                        <Text style={{ color: 'purple' }}>${props.slides[currentIndex].price}</Text>
+                        <Text style={{ color: currentIndex === 2 ? '#6699CC' : 'purple' }}>${props.slides[currentIndex].price}</Text>
                     </View>
                     <Text style={{
-                        color: 'white',
+                        color: props.slides[currentIndex].color,
                         fontWeight: 'bold',
                         fontSize: 13,
                         position: 'absolute',
-                        top: 130,
+                        top: 110,
                         left: 10
                     }}>{props.slides[currentIndex].name}</Text>
                     <View style={{
@@ -69,7 +69,7 @@ const ImageSlider = (props) => {
                             width: 40,
 
                         }}>
-                            <Image source={require('../assets/Image/okunuga.jpg')}
+                            <Image source={props.slides[currentIndex].secondImage}
                                 style={{
                                     height: '100%',
                                     width: '100%'
@@ -81,7 +81,7 @@ const ImageSlider = (props) => {
                         <Text style={styles.textStyle}>{props.slides[currentIndex].tutor}</Text>
                         <SecondIcon size={12} color="white" name="clock-time-four" />
                         <Text style={{
-                            color: "white",
+                            color: props.slides[currentIndex].color,
                             fontSize: 10,
                             fontWeight: 'bold'
                         }}> {props.slides[currentIndex].time}</Text>
@@ -113,7 +113,7 @@ const ImageSlider = (props) => {
                             margin: 5
                         }}
                         onPress={() => {
-                            console.log("3")
+
                             setCurrentIndex(slideIndex)
                             // console.log(slideIndex)
                         }}>

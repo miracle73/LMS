@@ -6,7 +6,17 @@ import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import TrendingCategoryComponent from '../Components/TrendingCategoryComponent';
+
+
+
 const Categories = () => {
+    const trendingComponents = [
+        { name: 'Forex', color: 'white', secondImage: '', number: 9 },
+        { name: 'Management', color: 'purple', secondImage: '', number: 7 },
+        { name: 'Sales and Marketing', color: 'blue', image: '', number: 10 },
+        { name: 'Entrepreneurship', color: 'blue', secondImage: '', number: 23 },
+    ]
     return (
         <View style={styles.container}>
             <View style={{
@@ -28,7 +38,19 @@ const Categories = () => {
                 marginTop: 50,
                 marginBottom: 10
             }}>Trending</Text>
-            <View></View>
+            <View style={{
+                height: 100,
+                margin: 'auto',
+                position: 'relative',
+                width: '90%',
+                display: 'grid'
+
+            }}>
+                <View>
+                    <TrendingCategoryComponent />
+                </View>
+
+            </View>
             <View>
                 <Text style={{ marginBottom: 10 }}>Browse Categories</Text>
                 <View style={{
