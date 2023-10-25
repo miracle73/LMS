@@ -1,5 +1,5 @@
-import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import { View, Text, StyleSheet, Dimensions } from 'react-native'
+import React, { useRef } from 'react'
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
@@ -7,10 +7,24 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import TrendingCategoryComponent from '../Components/TrendingCategoryComponent';
+import Carousel from 'react-native-snap-carousel';
 
 
 
+const { width: viewportWidth } = Dimensions.get('window');
+
+const sliderWidth = viewportWidth;
+const itemWidth = viewportWidth * 0.65; // 75% of the screen width
 const Categories = () => {
+    const carouselRef = useRef(null);
+
+    // Function to handle click event
+    const handlePress = (index) => {
+        // Navigate to the slide at the specified index
+        carouselRef.current.snapToItem(index);
+    }
+
+
     const trendingComponents = [
         { name: 'Forex', color: 'white', secondImage: '', number: 9 },
         { name: 'Management', color: 'purple', secondImage: '', number: 7 },
@@ -40,15 +54,30 @@ const Categories = () => {
             }}>Trending</Text>
             <View style={{
                 height: 100,
-                margin: 'auto',
+                backgroundColor: 'blue',
                 position: 'relative',
-                width: '90%',
-                display: 'grid'
+                width: '100%',
 
             }}>
-                <View>
+                {/* <View style={{
+                    flexDirection: 'row',
+                    width: '100%',
+                    alignItems: 'center',
+                    animat
+                }}>
                     <TrendingCategoryComponent />
-                </View>
+                </View> */}
+                <Carousel
+                    ref={carouselRef}
+                    data={trendingComponents}
+                    renderItem={({ item, index }) => <TrendingCategoryComponent data={item} name={item.name} number={item.number} onPress={() => handlePress(index)} />}
+                    sliderWidth={sliderWidth}
+                    itemWidth={itemWidth}
+                    loop={false}
+                    autoplay={false}
+                    inactiveSlideShift={0}
+
+                />
 
             </View>
             <View>

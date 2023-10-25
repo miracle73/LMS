@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
 
-const TrendingCategoryComponent = () => {
+const TrendingCategoryComponent = ({ data, name, number }) => {
     return (
         <View style={styles.container}>
             <View style={{
@@ -19,8 +19,8 @@ const TrendingCategoryComponent = () => {
             <View style={{
                 gap: 5
             }}>
-                <Text>Forex</Text>
-                <Text>9 Courses</Text>
+                <Text>{name}</Text>
+                <Text>{number} Courses</Text>
             </View>
 
         </View>
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         alignItems: 'center',
         gap: 20,
-        width: '70%',
+        width: '100%',
         borderRadius: 10
     }
 })
