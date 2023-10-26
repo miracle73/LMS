@@ -34,8 +34,9 @@ const styles = StyleSheet.create({
         paddingVertical: 20,
         alignItems: 'center',
         gap: 20,
-        width: '100%',
-        borderRadius: 10
+        width: 250,
+        borderRadius: 10,
+        marginHorizontal: 10
     }
 })
 

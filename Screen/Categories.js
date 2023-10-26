@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, Dimensions } from 'react-native'
+import { View, Text, StyleSheet, Dimensions, ScrollView } from 'react-native'
 import React, { useRef } from 'react'
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import Feather from 'react-native-vector-icons/Feather';
@@ -11,7 +11,7 @@ import Carousel from 'react-native-snap-carousel';
 
 
 
-const { width: viewportWidth } = Dimensions.get('window');
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
 
 const sliderWidth = viewportWidth;
 const itemWidth = viewportWidth * 0.65; // 75% of the screen width
@@ -54,7 +54,7 @@ const Categories = () => {
             }}>Trending</Text>
             <View style={{
                 height: 100,
-                backgroundColor: 'blue',
+
                 position: 'relative',
                 width: '100%',
 
@@ -67,7 +67,7 @@ const Categories = () => {
                 }}>
                     <TrendingCategoryComponent />
                 </View> */}
-                <Carousel
+                {/* <Carousel
                     ref={carouselRef}
                     data={trendingComponents}
                     renderItem={({ item, index }) => <TrendingCategoryComponent data={item} name={item.name} number={item.number} onPress={() => handlePress(index)} />}
@@ -77,7 +77,24 @@ const Categories = () => {
                     autoplay={false}
                     inactiveSlideShift={0}
 
-                />
+                /> */}
+                <ScrollView snapToInterval={viewportWidth} decelerationRate='fast' alwaysBounceHorizontal={true}
+                    horizontal showsHorizontalScrollIndicator={false} bounces={false} overScrollMode='never'>
+                    {trendingComponents.map((trend) => (
+                        <View
+                            key={trend.number}
+                            style={{
+
+
+                                width: viewportWidth * 2 / 3,
+                                height: viewportHeight
+                            }}>
+                            <TrendingCategoryComponent key={trend.number} name={trend.name} number={trend.number} />
+                        </View>
+
+                    ))}
+
+                </ScrollView>
 
             </View>
             <View>

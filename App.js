@@ -28,7 +28,7 @@ export default function App() {
 
 
       <Navigation />
-      <StatusBar style="light" />
+      <StatusBar style="auto" />
 
 
       {/* // </Stack.Navigator> */}
