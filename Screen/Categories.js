@@ -7,7 +7,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import TrendingCategoryComponent from '../Components/TrendingCategoryComponent';
-import Carousel from 'react-native-snap-carousel';
+// import Carousel from 'react-native-snap-carousel';
 
 
 
@@ -16,13 +16,7 @@ const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window'
 const sliderWidth = viewportWidth;
 const itemWidth = viewportWidth * 0.65; // 75% of the screen width
 const Categories = () => {
-    const carouselRef = useRef(null);
 
-    // Function to handle click event
-    const handlePress = (index) => {
-        // Navigate to the slide at the specified index
-        carouselRef.current.snapToItem(index);
-    }
 
 
     const trendingComponents = [
@@ -59,25 +53,7 @@ const Categories = () => {
                 width: '100%',
 
             }}>
-                {/* <View style={{
-                    flexDirection: 'row',
-                    width: '100%',
-                    alignItems: 'center',
-                    animat
-                }}>
-                    <TrendingCategoryComponent />
-                </View> */}
-                {/* <Carousel
-                    ref={carouselRef}
-                    data={trendingComponents}
-                    renderItem={({ item, index }) => <TrendingCategoryComponent data={item} name={item.name} number={item.number} onPress={() => handlePress(index)} />}
-                    sliderWidth={sliderWidth}
-                    itemWidth={itemWidth}
-                    loop={false}
-                    autoplay={false}
-                    inactiveSlideShift={0}
 
-                /> */}
                 <ScrollView snapToInterval={viewportWidth} decelerationRate='fast' alwaysBounceHorizontal={true}
                     horizontal showsHorizontalScrollIndicator={false} bounces={false} overScrollMode='never'>
                     {trendingComponents.map((trend) => (
