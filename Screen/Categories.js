@@ -33,8 +33,14 @@ const Categories = () => {
                 gap: 100,
                 alignItems: 'center',
             }}>
-                <EvilIcons size={28} color="black" name="navicon" />
-
+                <View style={{
+                    padding: 8,
+                    elevation: 1,
+                    backgroundColor: 'white',
+                    borderRadius: 10
+                }}>
+                    <EvilIcons size={28} color="black" name="navicon" />
+                </View>
                 <Text style={{
                     fontWeight: 'bold',
                     fontSize: 16
